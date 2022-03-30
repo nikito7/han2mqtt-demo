@@ -14,7 +14,7 @@ $mqttpub -t "homeassistant/sensor/${id}/${1}/config" \
   "state_class": "measurement",
   "name": "'"${name} ${2}"'",
   "state_topic": "'"han2mqtt/${id}/${1}"'",
-  "value_template": "{{ fffggg1 }}",
+  "value_template": "{{ value }}",
   "unique_id": "'"${id}_$1"'",
   "device": {
     "identifiers": "'${id}'",
