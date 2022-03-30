@@ -1,5 +1,7 @@
 #!/bin/sh
 
+### common.sh ###
+
 name="EB1"
 id="han2mqtt_eb1"
 model=han2mqtt
