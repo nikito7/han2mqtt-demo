@@ -11,6 +11,17 @@ HOST="-m enc -p 9502 10.1.0.37"
 #HOST="-b 9600 -p none -m rtu $TTY"
 
 ###
+function get()
+{
+cat $secrets | grep $1 | awk -F ": " '{ print $2 }'
+}
+
+mqttpub="mosquitto_pub -h \
+$(get mqtt_server) -u \
+$(get mqtt_user) -P \
+$(get mqtt_pass)"
+
+###
 
 function get16bits()
 {
@@ -30,9 +41,12 @@ function get32bits()
 
 ###
 
-result=$(get16bits 108 3)
+result=$(get16bits 108 1 | sed -e 's/ //g')
 
-echo $result | sed -e 's/ //g'
+echo $result 
+
+$mqttpub -t "han2mqtt/han2mqtt_eb1/VolL1" \
+-m $result
 
 ##
 #
