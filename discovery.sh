@@ -37,7 +37,7 @@ $mqttpub -t "homeassistant/sensor/${id}/${1}/config" \
   "unique_id": "'"${id}_$1"'",
   "device": {
     "identifiers": "'${id}'",
-    "model": "'${id}'",
+    "model": "'${id}'"
   }
 }'
 #
