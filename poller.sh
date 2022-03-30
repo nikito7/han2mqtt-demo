@@ -27,7 +27,7 @@ function get16bits()
 {
 /config/apps/modpoll -a 1 -0 -1 \
 -r $1 -c $2 -t 3 $HOST \
-| grep '^\[' | awk -F ": " '{ print $2 "," }'
+| grep '^\[' | awk -F ": " '{ print $2 "," }' | sed -e 's/ //g'
 }
 
 ###
@@ -36,14 +36,14 @@ function get32bits()
 {
 /config/apps/modpoll -a 1 -0 -1 \
 -r $1 -c $2 -t 3:int -e $HOST \
-| grep '^\[' | awk -F ": " '{ print $2 "," }'
+| grep '^\[' | awk -F ": " '{ print $2 "," }' | sed -e 's/ //g'
 }
 
 ###
 
 result=$(get16bits 108 1)
 
-echo $result | sed -e 's/ //g'
+echo $result
 
 $mqttpub -t "han2mqtt/han2mqtt_eb1/VolL1" \
 -m $result
