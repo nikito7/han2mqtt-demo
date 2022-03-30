@@ -41,9 +41,9 @@ function get32bits()
 
 ###
 
-result=$(get16bits 108 1 | sed -e 's/ //g')
+result=$(get16bits 108 1)
 
-echo $result 
+echo $result | sed -e 's/ //g'
 
 $mqttpub -t "han2mqtt/han2mqtt_eb1/VolL1" \
 -m $result
