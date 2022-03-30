@@ -4,6 +4,8 @@
 
 . common.sh
 
+###
+
 # rtu over tcp
 
 HOST="-m enc -p 9502 10.1.0.37"
@@ -41,7 +43,7 @@ result=$(get16bits 108 1)
 
 echo $result
 
-$mqttpub -t "han2mqtt/han2mqtt_eb1/VolL1" \
+$mqttpub -t "han2mqtt/${id}/VolL1" \
 -m $result
 
 ##
