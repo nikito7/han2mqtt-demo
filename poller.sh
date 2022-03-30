@@ -1,5 +1,7 @@
 #!/bin/sh
 
+secrets=/config/secrets.yaml
+
 # rtu over tcp
 
 HOST="-m enc -p 9502 10.1.0.37"
