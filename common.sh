@@ -2,8 +2,8 @@
 
 ### common.sh ###
 
-name="EB1"
-id="han2mqtt_eb1"
+name="EB9"
+id="han2mqtt_eb9"
 model=han2mqtt
 secrets=/config/secrets.yaml
 
