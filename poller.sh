@@ -1,6 +1,8 @@
 #!/bin/sh
 
-secrets=/config/secrets.yaml
+### poller.sh ###
+
+. common.sh
 
 # rtu over tcp
 
@@ -13,15 +15,7 @@ HOST="-m enc -p 9502 10.1.0.37"
 #HOST="-b 9600 -p none -m rtu $TTY"
 
 ###
-function get()
-{
-cat $secrets | grep $1 | awk -F ": " '{ print $2 }'
-}
 
-mqttpub="mosquitto_pub -h \
-$(get mqtt_server) -u \
-$(get mqtt_user) -P \
-$(get mqtt_pass)"
 
 ###
 
